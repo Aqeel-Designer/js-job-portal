@@ -45,18 +45,7 @@ A responsive job portal website built with HTML, CSS, and JavaScript. The projec
 - Data Persistence
 - Responsive Web Design
 
-## Project Structure
 
-```text
-Job Portal/
-│
-├── CSS/
-├── JS/
-├── images/
-├── pages/
-├── index.html
-└── README.md
-```
 
 ## Data Persistence
 
