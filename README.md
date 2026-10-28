@@ -2,6 +2,11 @@
 
 A responsive job portal website built with HTML, CSS, and JavaScript. The project allows users to browse available jobs, search and filter listings, view job details, save jobs, and manage job postings using browser local storage.
 
+Live Demo:
+
+https://js-job-portal.vercel.app/
+
+
 ## Features
 
 - Browse available job listings
