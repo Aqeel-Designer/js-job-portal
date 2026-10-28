@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+
+<body data-job-source="saved">
+    <!-- Header -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">Job<span>Finder</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="saved-jobs.html" >Saved</a></li>
+                <li><a href="applied-jobs.html">Applied</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="navbar-actions">
+                <button class="theme-toggle" id="themeToggleBtn">🌙</button>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-controls="navLinks">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+    </header>
+
+    <main id="mainContent">
+        <section class="jobs-page-header">
+            <div class="container" style="text-align: center; ">
+                <h1 id="h1style">Add Jobs</h1>
+                <p id="jobsPageSubtitle">Fill the form below to add a new Job</p>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Add/Delete Job -->
+    <main>
+
+        <section class="section add-jobs-section">
+            <div class="container">
+
+                <!-- Tabs -->
+                <div class="management-tabs">
+                    <button class="management-tab active" data-tab="addJobTab">
+                        Add a Job
+                    </button>
+
+                    <button class="management-tab" data-tab="editJobsTab">
+                        Edit Added Jobs
+                    </button>
+                </div>
+
+
+                <!-- Add Job Tab -->
+                <div class="management-tab-content active" id="addJobTab">
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Add a New Job</h2>
+                            <p>
+                                Enter the job information below to add it to the portal.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <form id="addJobForm" novalidate>
+
+                        <!-- Job Title -->
+                        <div class="form-group">
+                            <label for="jobTitle">Job Title</label>
+
+                            <input type="text" id="jobTitle" name="title" placeholder="e.g. Frontend Developer" oninput="this.value = this.value.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')">
+
+                            <div class="field-error">
+                                Please enter the job title.
+                            </div>
+                        </div>
+
+
+                        <!-- Company -->
+                        <div class="form-group">
+                            <label for="jobCompany">Company</label>
+
+                            <input type="text" id="jobCompany" name="company" placeholder="e.g. OptimusFox" oninput="this.value = this.value.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')">
+
+                            <div class="field-error">
+                                Please enter the company name.
+                            </div>
+                        </div>
+
+
+                        <!-- Location -->
+                        <div class="form-group">
+                            <label for="jobLocation">Location</label>
+
+                            <input type="text" id="jobLocation" name="location" placeholder="e.g. Lahore" oninput="this.value = this.value.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')">
+
+                            <div class="field-error">
+                                Please enter the job location.
+                            </div>
+                        </div>
+
+
+                        <!-- Job Type -->
+                        <div class="form-group">
+                            <label for="jobType">Job Type</label>
+
+                            <select id="jobType" name="type">
+                                <option value="">Select job type</option>
+                                <option value="Full time">Full time</option>
+                                <option value="Part time">Part time</option>
+                                <option value="Contract">Contract</option>
+                                <option value="Internship">Internship</option>
+                            </select>
+
+                            <div class="field-error">
+                                Please select a job type.
+                            </div>
+                        </div>
+
+
+                        <!-- Category -->
+                        <div class="form-group">
+                            <label for="jobCategory">Category</label>
+
+                            <select id="jobCategory" name="category">
+                                <option value="">Select category</option>
+                                <option value="Development">Development</option>
+                                <option value="Design">Design</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Human Resources">Human Resources</option>
+                            </select>
+
+                            <div class="field-error">
+                                Please select a category.
+                            </div>
+                        </div>
+
+
+                        <!-- Salary -->
+                        <div class="form-group">
+                            <label for="jobSalary">Salary</label>
+
+                            <input type="number" id="jobSalary" name="salary" placeholder="e.g. 2000" min="0">
+
+                            <div class="field-error">
+                                Please enter a valid salary.
+                            </div>
+                        </div>
+
+
+                        <!-- Posted Date -->
+                        <div class="form-group">
+                            <label for="jobPosted">Posted Date</label>
+
+                            <input type="date" id="jobPosted" name="posted">
+
+                            <div class="field-error">
+                                Please select a posted date.
+                            </div>
+                        </div>
+
+
+                        <!-- Remote -->
+                        <div class="form-group">
+                            <label for="jobRemote">Work Type</label>
+
+                            <select id="jobRemote" name="remote">
+                                <option value="">Select work type</option>
+                                <option value="true">Remote</option>
+                                <option value="false">On-site</option>
+                            </select>
+
+                            <div class="field-error">
+                                Please select the work type.
+                            </div>
+                        </div>
+
+
+                        <!-- Description -->
+                        <div class="form-group">
+                            <label for="jobDescription">Description</label>
+
+                            <textarea id="jobDescription" name="description"
+                                placeholder="Write a short description about the job..."></textarea>
+
+                            <div class="field-error">
+                                Please enter a job description.
+                            </div>
+                        </div>
+
+
+                        <!-- Requirements -->
+                        <div class="form-group">
+                            <label for="jobRequirements">
+                                Requirements
+                            </label>
+
+                            <textarea id="jobRequirements" name="requirements"
+                                placeholder="Enter each requirement on a new line"></textarea>
+
+                            <div class="field-error">
+                                Please enter at least one requirement.
+                            </div>
+
+                            <small class="form-help">
+                                Write each requirement on a separate line.
+                            </small>
+                        </div>
+
+
+                        <!-- Responsibilities -->
+                        <div class="form-group">
+                            <label for="jobResponsibilities">
+                                Responsibilities
+                            </label>
+
+                            <textarea id="jobResponsibilities" name="responsibilities"
+                                placeholder="Enter each responsibility on a new line"></textarea>
+
+                            <div class="field-error">
+                                Please enter at least one responsibility.
+                            </div>
+
+                            <small class="form-help">
+                                Write each responsibility on a separate line.
+                            </small>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Add Job
+                        </button>
+
+                        <div id="addJobSuccess" class="success-box hidden">
+                            <div class="success-icon">✓</div>
+                            <h2>Job Added Successfully</h2>
+                            <p>The new job has been added to the job portal.</p>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- Edit Added Jobs Tab -->
+                <div class="management-tab-content" id="editJobsTab">
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Added Jobs</h2>
+                            <p>
+                                Manage jobs that were added through this page.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="addedJobsList" class="jobs-list">
+
+                        <!-- JavaScript will insert added jobs here -->
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4 class="logo" style="margin-bottom:10px;">Job<span>Finder</span></h4>
+                    <p>A simple job portal built as a learning project — connecting job seekers with
+                        companies across
+                        Pakistan.</p>
+                </div>
+                <div style="text-align: center;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="add-jobs.html">Add Jobs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>jobfinder@gmail.com</li>
+                        <li>Lahore, Pakistan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="currentYear"></span> JobFinder. Built for learning purposes only.
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script src="/js/app.js"></script>
+    <script src="/js/add-jobs.js"></script>
+    <script src="/js/validation.js"></script>
+    <script src="/js/jobs.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,372 @@
+/* ==========================================================================
+   JOB FINDER - RESPONSIVE STYLESHEET
+   Breakpoints:
+   - 1024px : Small laptops / Tablets (Landscape)
+   - 768px  : Tablets (Portrait) & Large Mobile
+   - 480px  : Small Mobile / Phones
+   ========================================================================== */
+
+/* Anchor for mobile absolute positioning */
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
+
+/* ==========================================================================
+   1. LAPTOPS & TABLETS LANDSCAPE (Max-Width: 1024px)
+   ========================================================================== */
+@media screen and (max-width: 1024px) {
+  /* Layout Adjustments */
+  .container {
+    max-width: 90%;
+  }
+
+  .navbar-container {
+    margin: 0 20px;
+  }
+
+  .jobs-layout {
+    grid-template-columns: 240px 1fr; /* Slightly narrower sidebar */
+    gap: 1.5rem;
+  }
+
+  .footer-grid {
+    gap: 2rem;
+  }
+
+  .stats-grid {
+    gap: 1rem;
+  }
+}
+
+/* ==========================================================================
+   2. TABLETS PORTRAIT & MOBILE (Max-Width: 768px)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  /* --- Navigation & Header --- */
+  .hamburger {
+    display: flex; /* Show mobile menu toggle */
+  }
+
+  .navbar-container {
+    padding: 0 20px;
+  }
+
+  /* Fixed Dropdown Menu Styles */
+  .nav-links {
+    position: absolute;
+    top: 100%;          /* Directly beneath the header */
+    left: 0;
+    width: 100%;
+    height: auto;       /* Wraps around menu items naturally */
+    display: none;      /* Hidden by default */
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1.5rem;
+    gap: 1.25rem;
+    background-color: #12192a;
+    box-shadow: var(--shadow-card);
+    transition: none;   /* Removed slide-left to prevent side-scrolling offset */
+  }
+
+  .nav-links.active {
+    display: flex;      /* Shown cleanly on button toggle */
+    .nav-links a:hover,
+.nav-links a.active {
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
+}
+  }
+
+  /* --- Hero Section & Form --- */
+  .hero {
+    padding: 3.5rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .search-form {
+    flex-direction: column;
+    border-radius: 12px;
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .search-form input {
+    width: 100%;
+  }
+
+  .search-form input:first-of-type {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+  }
+
+  /* --- Main Content & Jobs Layout --- */
+  .jobs-layout {
+    grid-template-columns: 1fr; /* Stack sidebar above job list */
+  }
+
+  .filters-panel {
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .jobs-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  /* --- Statistics --- */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 Grid */
+    gap: 1.5rem;
+  }
+
+  /* --- Footer --- */
+  .footer-grid {
+    grid-template-columns: 1fr; /* Stack footer sections */
+    gap: 2rem;
+  }
+
+  .footer-grid p {
+    max-width: 100%;
+  }
+
+  /* --- Modal & Dialogs --- */
+  .modal-box {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+  }
+}
+
+/* Edit Job Modal */
+
+.edit-job-modal {
+    max-height: 90vh;
+}
+
+.edit-job-modal .modal-footer {
+    flex-direction: row;
+}
+
+@media screen and (max-width: 768px) {
+
+    .edit-job-modal {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .edit-job-modal .modal-footer {
+        flex-direction: column;
+    }
+
+    .edit-job-modal .modal-footer .btn {
+        width: 100%;
+    }
+
+}
+
+/* ==========================================================================
+   3. PHONES & SMALL MOBILE (Max-Width: 480px)
+   ========================================================================== */
+@media screen and (max-width: 480px) {
+  /* --- Typography & Spacing --- */
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .navbar-container {
+    padding: 0 5px;
+  }
+
+  .hero-p {
+    font-size: 0.95rem;
+  }
+
+  .jobs-page-header h1 {
+    font-size: 1.75rem;
+  }
+
+  /* --- Results Bar & Sorting --- */
+  .results-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .sort-control {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* --- Cards & Buttons --- */
+  /* .btn {
+    width: 100%;
+    border-radius: 8px;
+  } */
+
+  .job-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .job-card-footer .btn {
+    width: 100%;
+  }
+
+  /* --- Statistics --- */
+  .stats-grid {
+    grid-template-columns: 1fr; /* Single column stats */
+    gap: 1.25rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  /* --- Pagination --- */
+  .pagination {
+    flex-wrap: wrap;
+  }
+
+  .pagination button {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.8rem;
+  }
+}
+
+
+/* =========================================================
+   Add Jobs Page - Responsive
+========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* Management Tabs */
+
+    .management-tabs {
+        width: 100%;
+        gap: 4px;
+    }
+
+    .management-tab {
+        flex: 1;
+        min-width: 0;
+        padding: 11px 8px;
+        font-size: 0.9rem;
+    }
+
+
+    /* Add Job Form */
+
+    #addJobForm {
+        width: 100%;
+    }
+
+
+    /* Added Job Card */
+
+    .jobs-list .added-job-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .added-job-info {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+    /* Added Job Buttons */
+
+    .added-job-actions {
+        width: auto;
+        display: flex;
+        gap: 10px;
+        align-self: flex-start;
+    }
+
+    .added-job-actions .btn {
+        width: auto;
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+
+    /* Management Tabs */
+
+    .management-tabs {
+        gap: 0;
+    }
+
+    .management-tab {
+        padding: 10px 5px;
+        font-size: 0.8rem;
+    }
+
+
+    /* Added Job Card */
+
+    .jobs-list .added-job-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+
+    /* Added Job Buttons */
+
+    .added-job-actions {
+        width: auto;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .added-job-actions .btn {
+        width: auto;
+        flex: 0 0 auto;
+    }
+}
+
+/* =========================================================
+   Delete Confirmation Modal - Responsive
+========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    .delete-confirm-modal {
+        width: 95%;
+    }
+
+    .delete-confirm-actions {
+        flex-direction: column;
+    }
+
+    .delete-confirm-actions .btn {
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">Job<span>Finder</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="saved-jobs.html">Saved</a></li>
+                <li><a href="applied-jobs.html">Applied</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggleBtn">🌙</button>
+            <button class="hamburger" id="hamburgerBtn">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+    </header>
+
+    <!--  JOB DETAILS  -->
+  <main id="mainContent">
+    <div class="container" style="padding-top:36px; padding-bottom:80px;">
+      <a href="jobs.html" class="btn btn-outline btn-small" style="margin-bottom:24px;">← Back to Jobs</a>
+
+      <!-- This whole block is filled in by jobs.js based on ?id= in the URL -->
+      <div id="jobDetailsPage">
+        <div class="state-message" id="detailsLoading">
+          <div class="state-icon">⏳</div>
+          <p>Loading job...</p>
+        </div>
+
+        <div class="hidden" id="detailsNotFound">
+          <div class="state-message">
+            <div class="state-icon">🚫</div>
+            <p><strong>Job not found.</strong><br />It may have been removed. Try browsing all jobs instead.</p>
+          </div>
+        </div>
+
+        <article class="hidden" id="detailsContent" style="max-width:720px;">
+          <h1 id="detailsTitle"></h1>
+          <p class="modal-company-line" id="detailsCompanyLine" style="font-size:1.05rem;"></p>
+
+          <div class="job-meta" id="detailsMeta" style="margin-bottom:20px;"></div>
+
+          <div class="modal-section">
+            <h3>Job Description</h3>
+            <p id="detailsDescription"></p>
+          </div>
+
+          <div class="modal-section">
+            <h3>Requirements</h3>
+            <ul id="detailsRequirements"></ul>
+          </div>
+
+          <div class="modal-section">
+            <h3>Responsibilities</h3>
+            <ul id="detailsResponsibilities"></ul>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="detailsApplyBtn">Apply Now</button>
+            <button class="btn btn-outline" id="detailsSaveBtn">♡ Save Job</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4 class="logo" style="margin-bottom:10px;">Job<span>Finder</span></h4>
+                    <p>A simple job portal built as a learning project — connecting job seekers with companies across
+                        Pakistan.</p>
+                </div>
+                <div style="text-align: center;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="add-jobs.html">Add Jobs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>hello@jobfinder.example</li>
+                        <li>Lahore, Pakistan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="currentYear"></span> JobFinder. Built for learning purposes only.
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="/js/data.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/validation.js"></script>
+    <script src="/js/jobs.js"></script>
+    
+</body>
+
+</html>

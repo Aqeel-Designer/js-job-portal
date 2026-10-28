@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">Job<span>Finder</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html"  class="active">Jobs</a></li>
+                <li><a href="saved-jobs.html">Saved</a></li>
+                <li><a href="applied-jobs.html">Applied</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="navbar-actions">
+                <button class="theme-toggle" id="themeToggleBtn">🌙</button>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-controls="navLinks">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+    </header>
+
+<main id="mainContent">
+    <section class="jobs-page-header">
+      <div class="container" style="text-align: center; ">
+        <h1 id="h1style">Browse Jobs</h1>
+        <p id="jobsPageSubtitle">Search and filter through open positions.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="jobs-layout">
+
+        <!-- Filters sidebar -->
+        <aside class="filters-panel" aria-label="Job filters">
+          <h3>Filters</h3>
+
+          <div class="filter-group">
+            <label class="filter-label" for="searchInput">Search</label>
+            <input type="text" id="searchInput" placeholder="Title, company, keyword..." />
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label">Job Type</span>
+            <label class="checkbox-row"><input type="checkbox" class="jobtype-checkbox" value="Full Time" /> Full Time</label>
+            <label class="checkbox-row"><input type="checkbox" class="jobtype-checkbox" value="Part Time" /> Part Time</label>
+            <label class="checkbox-row"><input type="checkbox" class="jobtype-checkbox" value="Internship" /> Internship</label>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label">Work Mode</span>
+            <label class="checkbox-row"><input type="checkbox" id="remoteFilter" /> Remote only</label>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label" for="categoryFilter">Category</label>
+            <select id="categoryFilter">
+              <option value="all">All Categories</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label" for="locationFilter">Location</label>
+            <select id="locationFilter">
+              <option value="all">All Locations</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label" for="salaryRange">Minimum Salary: $<span id="salaryRangeValue">0</span></label>
+            <input type="range" id="salaryRange" min="0" max="3000" step="100" value="0" />
+          </div>
+
+          <button class="btn btn-outline btn-block btn-small" id="clearFiltersBtn" type="button">Clear Filters</button>
+        </aside>
+
+        <!-- Results -->
+        <section>
+          <div class="results-toolbar">
+            <p class="results-count" id="resultsCount">Loading jobs...</p>
+            <div class="sort-control">
+              <label for="sortSelect">Sort By</label>
+              <select id="sortSelect">
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="salary-high">Highest Salary</option>
+                <option value="salary-low">Lowest Salary</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Loading state -->
+          <div class="state-message" id="loadingState">
+            <div class="state-icon">⏳</div>
+            <p>Loading jobs...</p>
+          </div>
+
+          <!-- Empty state (hidden until a search/filter produces 0 results) -->
+          <div class="state-message hidden" id="emptyState">
+            <div class="state-icon">🔍</div>
+            <p><strong>No jobs found.</strong><br />Try changing your search or filters.</p>
+          </div>
+
+          <!-- Job cards get inserted here by jobs.js -->
+          <div class="jobs-list hidden" id="jobsList"></div>
+
+          <!-- Pagination buttons get inserted here by jobs.js -->
+          <div class="pagination" id="pagination"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4 class="logo" style="margin-bottom:10px;">Job<span>Finder</span></h4>
+                    <p>A simple job portal built as a learning project — connecting job seekers with companies across
+                        Pakistan.</p>
+                </div>
+                <div style="text-align: center;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="add-jobs.html">Add Jobs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>jobfinder@gmail.com</li>
+                        <li>Lahore, Pakistan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="currentYear"></span> JobFinder. Built for learning purposes only.
+            </div>
+        </div>
+    </footer>
+
+    <!--  MODAL  -->
+    <div class="modal-overlay hidden" id="modalOverlay">
+        <div class="modal-box" role="dialog" >
+            <button class="modal-close" id="modalCloseBtn" aria-label="Close">✕</button>
+
+            <!--  View 1: Job details  -->
+            <div id="jobDetailsView">
+                <h2 id="modalJobTitle"></h2>
+                <p class="modal-company-line" id="modalCompanyLine"></p>
+
+                <div class="job-meta" id="modalMeta"></div>
+
+                <div class="modal-section">
+                    <h3>Job Description</h3>
+                    <p id="modalDescription"></p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Requirements</h3>
+                    <ul id="modalRequirements"></ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Responsibilities</h3>
+                    <ul id="modalResponsibilities"></ul>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="applyNowBtn">Apply Now</button>
+                    <button class="btn btn-outline" id="modalSaveBtn">♡ Save Job</button>
+                </div>
+            </div>
+
+            <!--  View 2: Apply form (hidden until "Apply Now" is clicked)  -->
+            <div id="applyFormView" class="hidden">
+                <h2>Apply for <span id="applyJobTitle"></span></h2>
+                <p class="modal-company-line" id="applyCompanyLine"></p>
+
+                <form id="applyForm" novalidate>
+                    <div class="form-group" id="fieldGroup-fullName">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" />
+                        <p class="field-error"></p>
+                    </div>
+
+                    <div class="form-group" id="fieldGroup-email">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" />
+                        <p class="field-error"></p>
+                    </div>
+
+                    <div class="form-group" id="fieldGroup-phone">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="phone" placeholder="e.g. 0300 1234567" />
+                        <p class="field-error"></p>
+                    </div>
+
+                    <div class="form-group" id="fieldGroup-coverLetter">
+                        <label for="coverLetter">Cover Letter</label>
+                        <textarea id="coverLetter" name="coverLetter"
+                            placeholder="Tell us why you're a great fit (min 30 characters)"></textarea>
+                        <p class="field-error"></p>
+                    </div>
+
+                    <div class="form-group" id="fieldGroup-cv">
+                        <label for="cvUpload">Upload CV</label>
+                        <input type="file" id="cvUpload" name="cvUpload" />
+                        <p class="field-error"></p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                        <button type="button" class="btn btn-outline" id="backToDetailsBtn">Back</button>
+                    </div>
+                </form>
+            </div>
+
+            <!--  View 3: Success message  -->
+            <div id="successView" class="hidden">
+                <div class="success-box">
+                    <div class="success-icon">✓</div>
+                    <h2>Application Submitted Successfully!</h2>
+                    <p>Thank you for applying for <strong id="successJobTitle"></strong> at <strong
+                            id="successCompany"></strong>.</p>
+                    <button class="btn btn-primary" id="successCloseBtn">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </main>
+
+
+    <script src="/js/data.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/validation.js"></script>
+    <script src="/js/jobs.js"></script>
+</body>
+
+</html>
